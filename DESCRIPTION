@@ -60,7 +60,7 @@ Suggests:
     viridis,
     cowplot,
     vdiffr
-URL: https://seandavi.github.io/BuildABiocWorkshop/
-BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
+URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
+BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: ghcr.io/seandavi/buildabiocworkshop:latest
+DockerImage: ghcr.io/nanostring-biostats/soobiocworkshop:latest
