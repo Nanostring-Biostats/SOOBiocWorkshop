@@ -1,27 +1,65 @@
-Package: BuildABiocWorkshop
-Title: Bioconductor or R Workshop Template and Github Actions
+Package: SpatialOmicsOverlay
+Title: Bioconductor Workshop for SpatialOmicsOverlay
 Version: 2.0.0
 Authors@R: 
-    person(given = "Sean",
-           family = "Davis",
-           role = c("aut", "cre"),
-           email = "seandavi@gmail.com",
-           comment = c(ORCID = "0000-0002-8991-6458"))
-Description: This package serves as a template for using github actions to 
-    prepare a Bioconductor Workshop package for use. In particular,
-    a pkgdown website and docker image are generated based on workflow 
-    settings. 
+    c(
+        person(
+            given = "Maddy",
+            family = "Griswold",
+            role = c("aut", "cre"),
+            email = "mgriswold@nanostring.com",
+            comment = c(ORCID = "")),
+        persion(given = "Stephanie",
+            family = "Zimmerman",
+            role = c("ctb"),
+            comment = c(ORCID = "")),
+        persion(given = "Megan",
+            family = "Vandenberg",
+            role = c("ctb"),
+            comment = c(ORCID = "0000-0001-7704-2100")))
+Description: This package makes a Bioconductor Workshop for the
+    SpatialOmicsOverlay package. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Depends: 
-    Biobase
+    R (>= 4.1.0)
+Imports:
+	S4Vectors,
+    Biobase,
+    base64enc,
+    EBImage,
+    ggplot2,
+    XML,
+    scattermore,
+    dplyr,
+    pbapply,
+    data.table,
+    readxl,
+    magick,
+    grDevices,
+    stringr,
+    plotrix,
+    GeomxTools,
+    BiocFileCache,
+    stats,
+    utils,
+    methods,
+    ggtext,
+    tools,
+    RBioFormats
 Suggests: 
     knitr,
     rmarkdown,
-    pkgdown
+    testthat (>= 3.0.0),
+    stringi,
+    qpdf,
+    pheatmap,
+    viridis,
+    cowplot,
+    vdiffr
 URL: https://seandavi.github.io/BuildABiocWorkshop/
 BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
