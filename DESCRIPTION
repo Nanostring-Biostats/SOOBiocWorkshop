@@ -2,21 +2,20 @@ Package: SpatialOmicsOverlay
 Title: Bioconductor Workshop for SpatialOmicsOverlay
 Version: 2.0.0
 Authors@R: 
-    c(
-        person(
+    person(
             given = "Maddy",
             family = "Griswold",
             role = c("aut", "cre"),
             email = "mgriswold@nanostring.com",
-            comment = c(ORCID = "")),
+            comment = c(ORCID = ""))
         persion(given = "Stephanie",
             family = "Zimmerman",
             role = c("ctb"),
-            comment = c(ORCID = "")),
+            comment = c(ORCID = ""))
         persion(given = "Megan",
             family = "Vandenberg",
             role = c("ctb"),
-            comment = c(ORCID = "0000-0001-7704-2100")))
+            comment = c(ORCID = "0000-0001-7704-2100"))
 Description: This package makes a Bioconductor Workshop for the
     SpatialOmicsOverlay package. 
 License: MIT + file LICENSE
