@@ -63,4 +63,4 @@ Suggests:
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: ghcr.io/nanostring-biostats/soobiocworkshop:latest
+DockerImage: https://ghcr.io/nanostring-biostats/soobiocworkshop:latest
