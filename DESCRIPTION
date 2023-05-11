@@ -27,7 +27,29 @@ RoxygenNote: 7.1.0
 Depends: 
     R (>= 4.1.0)
 Imports:
-    ggplot2
+    S4Vectors,
+    Biobase,
+    base64enc,
+    EBImage,
+    ggplot2,
+    XML,
+    scattermore,
+    dplyr,
+    pbapply,
+    data.table,
+    readxl,
+    magick,
+    grDevices,
+    stringr,
+    plotrix,
+    GeomxTools,
+    BiocFileCache,
+    stats,
+    utils,
+    methods,
+    ggtext,
+    tools,
+    RBioFormats
 Suggests: 
     viridis,
     knitr,
