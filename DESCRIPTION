@@ -29,7 +29,8 @@ Depends:
 Imports:
     ggplot2
 Suggests: 
-    viridis
+    viridis,
+    knitr
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
