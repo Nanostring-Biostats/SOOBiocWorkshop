@@ -29,7 +29,7 @@ Depends:
 Imports:
     GeomxTools,
     SpatialOmicsOverlay
-Suggets:
+Suggests:
     viridis,
     knitr,
     rmarkdown,
