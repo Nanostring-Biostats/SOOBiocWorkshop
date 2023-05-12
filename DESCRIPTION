@@ -1,4 +1,4 @@
-Package: SpatialOmicsOverlay
+Package: SpatialOmicsOverlayWorkshop
 Title: Bioconductor Workshop for SpatialOmicsOverlay
 Version: 2.0.0
 Authors@R: 
@@ -27,6 +27,7 @@ RoxygenNote: 7.1.0
 Depends: 
     R (>= 4.1.0)
 Imports:
+    SpatialOmicsOverlay,
     S4Vectors,
     Biobase,
     base64enc,
