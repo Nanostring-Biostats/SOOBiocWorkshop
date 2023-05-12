@@ -29,6 +29,16 @@ Depends:
 Imports:
     GeomxTools,
     SpatialOmicsOverlay
+Suggets:
+    viridis,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    stringi,
+    qpdf,
+    pheatmap,
+    cowplot,
+    vdiffr
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
