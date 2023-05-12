@@ -27,7 +27,6 @@ RoxygenNote: 7.1.0
 Depends: 
     R (>= 4.3.0),
 Imports:
-    SpatialOmicsOverlay,
     S4Vectors,
     Biobase,
     base64enc,
@@ -49,8 +48,13 @@ Imports:
     utils,
     methods,
     ggtext,
-    tools,
-    RBioFormats
+    tools
+Remotes:
+    bioc::release/RBioFormats,
+    bioc::release/Biostrings,
+    bioc::release/NanoStringNCTools,
+    bioc::release/GeomxTools,
+    bioc::release/SpatialOmicsOverlay
 Suggests: 
     viridis,
     knitr,
