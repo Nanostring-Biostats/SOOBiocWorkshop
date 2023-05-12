@@ -1,4 +1,4 @@
-Package: SpatialOmicsOverlay
+Package: SpatialOmicsOverlayWorkshop
 Title: Bioconductor Workshop for SpatialOmicsOverlay
 Version: 2.0.0
 Authors@R: 
@@ -27,39 +27,8 @@ RoxygenNote: 7.1.0
 Depends: 
     R (>= 4.1.0)
 Imports:
-    S4Vectors,
-    Biobase,
-    base64enc,
-    EBImage,
-    ggplot2,
-    XML,
-    scattermore,
-    dplyr,
-    pbapply,
-    data.table,
-    readxl,
-    magick,
-    grDevices,
-    stringr,
-    plotrix,
     GeomxTools,
-    BiocFileCache,
-    stats,
-    utils,
-    methods,
-    ggtext,
-    tools,
-    RBioFormats
-Suggests: 
-    viridis,
-    knitr,
-    rmarkdown,
-    testthat (>= 3.0.0),
-    stringi,
-    qpdf,
-    pheatmap,
-    cowplot,
-    vdiffr
+    SpatialOmicsOverlay
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
