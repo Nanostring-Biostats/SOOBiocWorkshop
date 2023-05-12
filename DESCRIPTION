@@ -25,7 +25,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Depends: 
-    R (>= 4.3.0),
+    R (>= 4.3.0)
 Imports:
     S4Vectors,
     Biobase,
@@ -48,15 +48,8 @@ Imports:
     utils,
     methods,
     ggtext,
-    tools
-Remotes:
-    bioc::release/GenomeInfoDbData,
-    bioc::release/GenomeInfoDbData,
-    bioc::release/RBioFormats,
-    bioc::release/Biostrings,
-    bioc::release/NanoStringNCTools,
-    bioc::release/GeomxTools,
-    bioc::release/SpatialOmicsOverlay
+    tools,
+    RBioFormats
 Suggests: 
     viridis,
     knitr,
