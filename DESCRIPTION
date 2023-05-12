@@ -41,5 +41,4 @@ Suggests:
     vdiffr
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
-VignetteBuilder: knitr
 DockerImage: https://ghcr.io/nanostring-biostats/soobiocworkshop:latest
