@@ -50,6 +50,8 @@ Imports:
     ggtext,
     tools
 Remotes:
+    bioc::release/GenomeInfoDbData,
+    bioc::release/GenomeInfoDbData,
     bioc::release/RBioFormats,
     bioc::release/Biostrings,
     bioc::release/NanoStringNCTools,
