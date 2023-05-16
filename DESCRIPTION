@@ -29,7 +29,9 @@ Depends:
 Imports:
     SpatialOmicsOverlay
 Suggests:
-    knitr
+    knitr,
+    viridis
+    cowplot
 URL: https://https://nanostring-biostats.github.io/SOOBiocWorkshop/
 BugReports: https://github.com/nanostring-biostats/SOOBiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
