@@ -10,7 +10,7 @@ includes Github actions to:
 * Stephanie Zimmerman, NanoString Technologies, Inc.
 
 ## Workshop Description
- This workshop will introduce users to the NanoString R package SpatialOmicsOverlay, which is useful in analyzing images from our GeoMx Digital Spatial Profiler (R) spatial biology platform.
+ This workshop will introduce users to the NanoString R package SpatialOmicsOverlay, which is useful in analyzing images from our GeoMx (R) Digital Spatial Profiler spatial biology platform.
 
  Participants will learn how to interact with OME-TIFF file types. The vignette data is from our repository of GeoMx datasets, called the [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/). Each organ profiled in NanoString’s Spatial Organ Atlas (SOA) consists of freely available downloadable data files on 4-13 sections. For this vignette, users will be exploring the mouse brain.
 
