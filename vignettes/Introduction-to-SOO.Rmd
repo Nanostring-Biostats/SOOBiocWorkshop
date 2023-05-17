@@ -56,11 +56,6 @@ Files needed:
     - GeomxSet Object (see [GeomxTools](http://www.bioconductor.org/packages/release/bioc/html/GeomxTools.html) and [GeoMxWorkflows](https://www.bioconductor.org/packages/release/workflows/html/GeoMxWorkflows.html) for more info)
     - Annotations from DSPDA (DSP Data Analysis software)
 
-Reading in the SpatialOverlay object can be done with or without the image. We will start without the image, as that can be added later. 
-
-If `outline = TRUE`, only ROI outline points are saved. This decreases memory needed and figure rendering time downstream. If ANY ROIs are segmented in the study, outline will be FALSE. In this particular example, there are segmented ROIs, so we set `outline = FALSE`.
-
-
 In this example, we are downloading a TIFF image from AWS S3, but this variable is simply the file path to an OME-TIFF.
 
 ***This function will be downloading a 13 GB file and will keep a 4 GB file in BiocFileCache. This download should take ~15 minutes, but you will only have to download once. Note this will download inside of the Docker image, but requires sufficient space on your device hosting the image.***
@@ -69,6 +64,11 @@ In this example, we are downloading a TIFF image from AWS S3, but this variable 
 tifFile <- downloadMouseBrainImage()
 tifFile
 ```
+
+
+Reading in the SpatialOverlay object can be done with or without the image. We will start without the image, as that can be added later. 
+
+If `outline = TRUE`, only ROI outline points are saved. This decreases memory needed and figure rendering time downstream. If ANY ROIs are segmented in the study, outline will be FALSE. In this particular example, there are segmented ROIs, so we set `outline = FALSE`.
 
 ```{r read in data}
 muBrainLW <- system.file("extdata", "muBrain_LabWorksheet.txt",
@@ -107,7 +107,7 @@ While manipulating the figure, there is a low-resolution option for faster rende
 A scale bar is automatically calculated when plotting. This functionality can be turned off using `scaleBar = FALSE`. Scale bars can be fully customized using `corner`, `textDistance`, and variables that start with scaleBar: `scaleBarWidth`, `scaleBarColor`, etc.
 
 ```{r plot w/o image Sample_ID}
-plotSpatialOverlay(overlay = muBrain, hiRes = TRUE, legend = FALSE)
+plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)
 ```
 
 `colorBy`, by default, is Sample_ID but almost any annotation or data can be added instead, including gene expression, tissue morphology annotations, pathway score, etc. These annotations can come from a data.frame, matrix, GeomxSet object, or vector. Below we attach the gene expression for CALM1 from a GeomxSet object and color the segments by that value.
@@ -207,7 +207,9 @@ See `?draw_plot` for more instructions on how to manipulate the legend position 
 
 ### Flipping Axes
 
-Images and overlays can be flipped across either axis to reorient the image. To flip both axes, use `flipY(flipX(overlay))`. These functions update the coordinates and image rather than just affecting the figure. In this example, the original image is reversed from the traditional view of the mouse brain, so we shall flip the y-axis. 
+Images and overlays can be flipped across either axis to reorient the image. To flip both axes, use `flipY(flipX(overlay))`. These functions update the coordinates and image rather than just affecting the figure. You cannot run these commands until the image is associated with the spatial overlay object. If you want to plot ROIs with the axes flipped, after adding in the image, you can run `plotSpatialOverlay(image=FALSE)`.
+
+In this example, the original image is reversed from the traditional view of the mouse brain, so we shall flip the y-axis. 
 
 ```{r flip axes}
 # muBrain <- flipY(muBrain)
