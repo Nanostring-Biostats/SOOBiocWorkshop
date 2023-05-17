@@ -41,9 +41,17 @@ The SpatialOmicsOverlay package is [now available](https://bioconductor.org/pack
 
 # Load Libraries
 ```{r Load Libraries}
-library(SpatialOmicsOverlay)
-library(GeomxTools)
+# library(SpatialOmicsOverlay)
+# library(GeomxTools)
 ```
+
+
+```{r}
+library(ggplot2)
+df <- data.frame(x = c(1,2,3), y = c(4,6,8))
+ ggplot(df, aes(x = x, y = y)) + geom_point()
+```
+
 
 # Data Ingestion
 
@@ -61,8 +69,8 @@ In this example, we are downloading a TIFF image from AWS S3, but this variable 
 ***This function will be downloading a 13 GB file and will keep a 4 GB file in BiocFileCache. This download should take ~15 minutes, but you will only have to download once. Note this will download inside of the Docker image, but requires sufficient space on your device hosting the image.***
 
 ```{r tiff file}
-tifFile <- downloadMouseBrainImage()
-tifFile
+# tifFile <- downloadMouseBrainImage()
+# tifFile
 ```
 
 
@@ -71,11 +79,11 @@ Reading in the SpatialOverlay object can be done with or without the image. We w
 If `outline = TRUE`, only ROI outline points are saved. This decreases memory needed and figure rendering time downstream. If ANY ROIs are segmented in the study, outline will be FALSE. In this particular example, there are segmented ROIs, so we set `outline = FALSE`.
 
 ```{r read in data}
-muBrainLW <- system.file("extdata", "muBrain_LabWorksheet.txt",
-                        package = "SpatialOmicsOverlay")
-muBrain <- readSpatialOverlay(ometiff = tifFile, annots = muBrainLW,
-                             slideName = "4", image = FALSE,
-                             saveFile = FALSE, outline = FALSE)
+# muBrainLW <- system.file("extdata", "muBrain_LabWorksheet.txt",
+#                         package = "SpatialOmicsOverlay")
+# muBrain <- readSpatialOverlay(ometiff = tifFile, annots = muBrainLW,
+#                              slideName = "4", image = FALSE,
+#                              saveFile = FALSE, outline = FALSE)
 ```
 The `readSpatialOverlay` function is a wrapper to walk through all of the necessary steps to store the OME-TIFF file components. This function automates XML extraction & parsing, image extraction, and coordinate generation. These functions can also be run separately if desired (`xmlExtraction`, `parseScanMetadata`, `parseOverlayAttrs`, `addImageOmeTiff`, `createCoordFile`). 
 
@@ -85,17 +93,17 @@ The `readSpatialOverlay` function is a wrapper to walk through all of the necess
 
 SpatialOverlay objects hold data specific to the image and the ROIs. Here are a couple of functions to access the most important parts.
 ```{r object accessors}
-#full object
-muBrain
-#sample names
-head(sampNames(muBrain))
-#slide name
-slideName(muBrain)
-#metadata of ROI overlays
-#Height, Width, X, Y values are in pixels
-head(meta(overlay(muBrain)))
-#coordinates of each ROI
-head(coords(muBrain))
+# #full object
+# muBrain
+# #sample names
+# head(sampNames(muBrain))
+# #slide name
+# slideName(muBrain)
+# #metadata of ROI overlays
+# #Height, Width, X, Y values are in pixels
+# head(meta(overlay(muBrain)))
+# #coordinates of each ROI
+# head(coords(muBrain))
 ```
 
 # Plotting Without Image
@@ -107,7 +115,7 @@ While manipulating the figure, there is a low-resolution option for faster rende
 A scale bar is automatically calculated when plotting. This functionality can be turned off using `scaleBar = FALSE`. Scale bars can be fully customized using `corner`, `textDistance`, and variables that start with scaleBar: `scaleBarWidth`, `scaleBarColor`, etc.
 
 ```{r plot w/o image Sample_ID}
-plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)
+# plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)
 ```
 
 `colorBy`, by default, is Sample_ID but almost any annotation or data can be added instead, including gene expression, tissue morphology annotations, pathway score, etc. These annotations can come from a data.frame, matrix, GeomxSet object, or vector. Below we attach the gene expression for CALM1 from a GeomxSet object and color the segments by that value.
