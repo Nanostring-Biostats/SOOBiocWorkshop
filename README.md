@@ -57,4 +57,4 @@ Your usename will be your GitHub username and your password should be a classic-
 
 
 Picture of plot
-![image](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/2f35096ebef487e39dc628446a8601600a9e2cb5/images/plotSpatialOverlay1.png)
+![image](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/2f35096ebef487e39dc628446a8601600a9e2cb5/images/plotSpatialOverlay1.png?raw=true)
