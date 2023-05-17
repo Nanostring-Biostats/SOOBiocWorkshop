@@ -1,6 +1,6 @@
 ---
 title: "Introduction to SpatialOmicsOverlay"
-author: Maddy Griswold^[mgriswold@nanostring.com]
+author: Maddy Griswold and Megan Vandenberg^[NanoString Technologies, Inc.]
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Intro to SOO}
@@ -15,6 +15,12 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+```{r}
+library(GeomxTools)
+library(SpatialOmicsOverlay)
+```
+
 
 # Workshop Title
 
