@@ -14,6 +14,5 @@ navbar:
   right:
    - icon: fa-github
      href: https://github.com/nanostring-biostats/SOOBiocWorkshop
-  - icon: fab fa-docker
-    href: https://ghcr.io/nanostring-biostats/soobiocworkshop:latest
-
+   - icon: fab fa-docker
+     href: https://ghcr.io/nanostring-biostats/soobiocworkshop:latest
