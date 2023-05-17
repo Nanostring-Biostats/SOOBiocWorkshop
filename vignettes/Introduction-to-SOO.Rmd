@@ -93,23 +93,23 @@ While manipulating the figure, there is a low-resolution option for faster rende
 A scale bar is automatically calculated when plotting. This functionality can be turned off using `scaleBar = FALSE`. Scale bars can be fully customized using `corner`, `textDistance`, and variables that start with scaleBar: `scaleBarWidth`, `scaleBarColor`, etc.
 
 ```{r plot w/o image Sample_ID}
-plotSpatialOverlay(overlay = muBrain, hiRes = TRUE, legend = FALSE)
+# plotSpatialOverlay(overlay = muBrain, hiRes = TRUE, legend = FALSE)
 ```
 
 `colorBy`, by default, is Sample_ID but almost any annotation or data can be added instead, including gene expression, tissue morphology annotations, pathway score, etc. These annotations can come from a data.frame, matrix, GeomxSet object, or vector. Below we attach the gene expression for CALM1 from a GeomxSet object and color the segments by that value.
 
 ```{r add plotting factors}
-muBrainAnnots <- readLabWorksheet(lw = muBrainLW, slideName = "4")
-muBrainGeomxSet <- readRDS(unzip(system.file("extdata", "muBrain_GxT.zip",
-                                 package = "SpatialOmicsOverlay")))
-muBrain <- addPlottingFactor(overlay = muBrain, annots = muBrainAnnots,
-                            plottingFactor = "segment")
-muBrain <- addPlottingFactor(overlay = muBrain, annots = muBrainGeomxSet,
-                             plottingFactor = "Calm1")
-muBrain <- addPlottingFactor(overlay = muBrain, annots = 1:length(sampNames(muBrain)),
-                             plottingFactor = "ROILabel")
-muBrain
-head(plotFactors(muBrain))
+# muBrainAnnots <- readLabWorksheet(lw = muBrainLW, slideName = "4")
+# muBrainGeomxSet <- readRDS(unzip(system.file("extdata", "muBrain_GxT.zip",
+#                                  package = "SpatialOmicsOverlay")))
+# muBrain <- addPlottingFactor(overlay = muBrain, annots = muBrainAnnots,
+#                             plottingFactor = "segment")
+# muBrain <- addPlottingFactor(overlay = muBrain, annots = muBrainGeomxSet,
+#                              plottingFactor = "Calm1")
+# muBrain <- addPlottingFactor(overlay = muBrain, annots = 1:length(sampNames(muBrain)),
+#                              plottingFactor = "ROILabel")
+# muBrain
+# head(plotFactors(muBrain))
 ```
 
 # Customizing the graph
