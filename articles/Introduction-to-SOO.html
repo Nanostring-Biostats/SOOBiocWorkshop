@@ -190,13 +190,19 @@ your device hosting the image.</em></strong></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">tifFile</span></span>
-<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/49413a4117b_mu_brain_004.ome.tiff"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/48f232ea6e1_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrainLW &lt;- system.file("extdata", "muBrain_LabWorksheet.txt",</span></span>
-<span><span class="co">#                         package = "SpatialOmicsOverlay")</span></span>
-<span><span class="co"># muBrain &lt;- readSpatialOverlay(ometiff = tifFile, annots = muBrainLW,</span></span>
-<span><span class="co">#                              slideName = "4", image = FALSE,</span></span>
-<span><span class="co">#                              saveFile = FALSE, outline = FALSE)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">muBrainLW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"muBrain_LabWorksheet.txt"</span>,</span>
+<span>                        package <span class="op">=</span> <span class="st">"SpatialOmicsOverlay"</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/readSpatialOverlay.html" class="external-link">readSpatialOverlay</a></span><span class="op">(</span>ometiff <span class="op">=</span> <span class="va">tifFile</span>, annots <span class="op">=</span> <span class="va">muBrainLW</span>,</span>
+<span>                             slideName <span class="op">=</span> <span class="st">"4"</span>, image <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                             saveFile <span class="op">=</span> <span class="cn">FALSE</span>, outline <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Extracting XML</span></span>
+<span><span class="co">#&gt; Parsing XML - scan metadata</span></span>
+<span><span class="co">#&gt; Parsing XML - overlay data</span></span>
+<span><span class="co">#&gt; Warning in parseOverlayAttrs(omexml = xml, annots = annots, labworksheet = labWorksheet): Some AOIs do not match annotation file. </span></span>
+<span><span class="co">#&gt; Not Matched: DSP-1012996073013-H-C01, DSP-1012996073013-H-C07, DSP-1012996073013-H-C08, DSP-1012996073013-H-C09, DSP-1012996073013-H-C12, DSP-1012996073013-H-G02</span></span>
+<span><span class="co">#&gt; Generating Coordinates</span></span></code></pre></div>
 <p>The <code>readSpatialOverlay</code> function is a wrapper to walk
 through all of the necessary steps to store the OME-TIFF file
 components. This function automates XML extraction &amp; parsing, image
