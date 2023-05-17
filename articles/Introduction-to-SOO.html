@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SpatialOmicsOverlayWorkshop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -190,7 +190,7 @@ your device hosting the image.</em></strong></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">tifFile</span></span>
-<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/48f232ea6e1_mu_brain_004.ome.tiff"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/48f3a5891cd_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">muBrainLW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"muBrain_LabWorksheet.txt"</span>,</span>
 <span>                        package <span class="op">=</span> <span class="st">"SpatialOmicsOverlay"</span><span class="op">)</span></span>
@@ -217,17 +217,43 @@ separately if desired (<code>xmlExtraction</code>,
 <p>SpatialOverlay objects hold data specific to the image and the ROIs.
 Here are a couple of functions to access the most important parts.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># #full object</span></span>
-<span><span class="co"># muBrain</span></span>
-<span><span class="co"># #sample names</span></span>
-<span><span class="co"># head(sampNames(muBrain))</span></span>
-<span><span class="co"># #slide name</span></span>
-<span><span class="co"># slideName(muBrain)</span></span>
-<span><span class="co"># #metadata of ROI overlays</span></span>
-<span><span class="co"># #Height, Width, X, Y values are in pixels</span></span>
-<span><span class="co"># head(meta(overlay(muBrain)))</span></span>
-<span><span class="co"># #coordinates of each ROI</span></span>
-<span><span class="co"># head(coords(muBrain))</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#full object</span></span>
+<span><span class="va">muBrain</span></span>
+<span><span class="co">#&gt; SpatialOverlay </span></span>
+<span><span class="co">#&gt; Slide Name: 4 </span></span>
+<span><span class="co">#&gt; Overlay Data: 87 samples </span></span>
+<span><span class="co">#&gt;    Overlay Names: DSP-1012996073013-H-A02 ... DSP-1012996073013-H-H09 ( 87 total ) </span></span>
+<span><span class="co">#&gt; Scan Metadata </span></span>
+<span><span class="co">#&gt;    Panels: TAP Mouse Whole Transcriptome Atlas </span></span>
+<span><span class="co">#&gt;    Segmentation: Segmented </span></span>
+<span><span class="co">#&gt; Outline: FALSE</span></span>
+<span><span class="co">#sample names</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">sampNames</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "DSP-1012996073013-H-A02" "DSP-1012996073013-H-A03"</span></span>
+<span><span class="co">#&gt; [3] "DSP-1012996073013-H-A04" "DSP-1012996073013-H-A05"</span></span>
+<span><span class="co">#&gt; [5] "DSP-1012996073013-H-A06" "DSP-1012996073013-H-A07"</span></span>
+<span><span class="co">#slide name</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">slideName</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "4"</span></span>
+<span><span class="co">#metadata of ROI overlays</span></span>
+<span><span class="co">#Height, Width, X, Y values are in pixels</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialPosition-class.html" class="external-link">meta</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">overlay</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ROILabel               Sample_ID Height Width     X     Y Segmentation</span></span>
+<span><span class="co">#&gt; 1        1 DSP-1012996073013-H-A02    751   751 10363 15008    Geometric</span></span>
+<span><span class="co">#&gt; 2        2 DSP-1012996073013-H-A03   1239   782 14346 16630    Geometric</span></span>
+<span><span class="co">#&gt; 3        3 DSP-1012996073013-H-A04   1272   902 15664 16603    Geometric</span></span>
+<span><span class="co">#&gt; 4        4 DSP-1012996073013-H-A05   1119  1276 13707 16135    Geometric</span></span>
+<span><span class="co">#&gt; 5        5 DSP-1012996073013-H-A06   1054  1124 15932 16228    Geometric</span></span>
+<span><span class="co">#&gt; 6        6 DSP-1012996073013-H-A07    751   751 10756 14259    Geometric</span></span>
+<span><span class="co">#coordinates of each ROI</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">coords</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                  sampleID ycoor xcoor</span></span>
+<span><span class="co">#&gt; 1 DSP-1012996073013-H-A02 15383 10363</span></span>
+<span><span class="co">#&gt; 2 DSP-1012996073013-H-A02 15356 10364</span></span>
+<span><span class="co">#&gt; 3 DSP-1012996073013-H-A02 15357 10364</span></span>
+<span><span class="co">#&gt; 4 DSP-1012996073013-H-A02 15358 10364</span></span>
+<span><span class="co">#&gt; 5 DSP-1012996073013-H-A02 15359 10364</span></span>
+<span><span class="co">#&gt; 6 DSP-1012996073013-H-A02 15360 10364</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plotting-without-image">Plotting Without Image<a class="anchor" aria-label="anchor" href="#plotting-without-image"></a>
@@ -312,7 +338,7 @@ the rest of this tutorial we will be using <code>res = 4</code> for
 vignette size restrictions; <code>res</code> 4-6 is generally
 recommended.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># lowest resolution = fastest speeds</span></span>
+<code class="sourceCode R"><span><span class="co"># #lowest resolution = fastest speeds</span></span>
 <span><span class="co"># checkValidRes(ometiff = tifFile)</span></span>
 <span><span class="co"># res &lt;- 4</span></span>
 <span><span class="co"># muBrain &lt;- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)</span></span>
