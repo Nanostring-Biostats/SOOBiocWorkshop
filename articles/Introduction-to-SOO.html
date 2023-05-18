@@ -129,6 +129,11 @@ available</a> from our <a href="https://nanostring.com/products/geomx-digital-sp
 Organ Atlas</a>. While we will be looking at only one sample, any of the
 data from our freely-downloadable Spatial Organ Atlas samples would also
 suffice as an alternative.</p>
+<div class="figure">
+<img src="4channels.png" alt="Mouse brain" width="50%"><p class="caption">
+Mouse brain
+</p>
+</div>
 <p>This coronal section of formalin-fixed, paraffin-embedded (FFPE)
 adult mouse was visualized with antibodies to:</p>
 <ul>
@@ -232,7 +237,7 @@ your device hosting the image.</em></strong></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">tifFile</span></span>
-<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/6cac7982d_mu_brain_004.ome.tiff"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/6c8189687b_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <p>Reading in the SpatialOverlay object can be done with or without the
 image. We will start without the image, as that can be added later.</p>
 <p>If <code>outline = TRUE</code>, only ROI outline points are saved.
@@ -367,6 +372,11 @@ the object.</p>
 resolution. Size decreases as the image gets smaller. Images are 1/2 the
 length and width as the previous resolution. Stacked upon each other,
 one can conceptualize a “pyramidal” shape.</p>
+<div class="figure">
+<img src="pyramidalTIFF.png" alt="Pyramidal TIFF" width="50%"><p class="caption">
+Pyramidal TIFF
+</p>
+</div>
 <p>The <code>res</code> variable says which resolution of the image to
 extract. 1 = largest image, or the bottom of the OME-TIFF “pyramid”.
 Higher <code>res</code> values indicate the smaller, lower resolution
