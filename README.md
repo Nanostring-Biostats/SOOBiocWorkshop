@@ -17,17 +17,17 @@ Specifically, SpatialOmicsOverlay was developed to visualize and analyze the fre
 
 The *Introduction to SpatialOmicsOverlay* vignette demonstrates how to use OME-TIFF files, which are exported from the GeoMx platform. Participants will learn how to interact with this file type and generate informative plots over images. This vignette utilizes data from our [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/). The Spatial Organ Atlas is a freely-accesible resource of whole transcriptome spatial profiles of functional components of tissues from human and mouse generated using our [Whole Transcriptome Atlas RNA assay](https://doi.org/10.1101/2021.09.29.462442). In particular, vignette users will be analyzing data from the mouse brain. This content is similar to the vignette available with the package upon installation.
 
-Mouse brain with ROIs only:
+Mouse brain with ROIs only - see ROIs in space:
 
-![img1](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainNoImage.png?raw=true)
+![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainNoImage.png?raw=true)
 
-Mouse brain with ROIs and immunofluoresence image:
+Mouse brain with ROIs and immunofluoresence image - see substructures samples:
 
-![img2](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImage.png?raw=true)
+![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImage.png?raw=true)
 
-Mouse brain with Calm1 expression - see relationship between tissue structure and expression:
+Mouse brain with Calm1 expression - see relationship between tissue structure and gene expression:
 
-![img3](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImageAndCalm1.png?raw=true)
+![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImageAndCalm1.png?raw=true)
 
 ## Pre-requisites
 * Basic knowledge of R programming
@@ -62,8 +62,8 @@ Your usename will be your GitHub username and your password should be a classic-
 
 
 ## Resources
-* [Explore the workshop homepage](https://nanostring-biostats.github.io/SOOBiocWorkshop/index.html)
-* [Learn more about the GeoMx DSP platform](https://nanostring.com/products/geomx-digital-spatial-profiler/geomx-dsp-overview/)
-* [Access SpatialOmicsOverlay on Bioconductor](https://bioconductor.org/packages/release/bioc/html/SpatialOmicsOverlay.html)
-* [Explore the Spatial Organ Atlas data on NanoString's website](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/)
-* [View source code for this workshop](https://github.com/Nanostring-Biostats/SOOBiocWorkshop)
+* Explore the [workshop homepage](https://nanostring-biostats.github.io/SOOBiocWorkshop/index.html).
+* Learn more about the [GeoMx DSP platform](https://nanostring.com/products/geomx-digital-spatial-profiler/geomx-dsp-overview/).
+* Access [SpatialOmicsOverlay](https://bioconductor.org/packages/release/bioc/html/SpatialOmicsOverlay.html) on Bioconductor.
+* Explore the [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/) data on NanoString's website.
+* View [source code](https://github.com/Nanostring-Biostats/SOOBiocWorkshop) for this workshop.
