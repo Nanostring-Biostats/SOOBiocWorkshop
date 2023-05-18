@@ -130,7 +130,7 @@ While manipulating the figure, there is a low-resolution option for faster rende
 
 A scale bar is automatically calculated when plotting. This functionality can be turned off using `scaleBar = FALSE`. Scale bars can be fully customized using `corner`, `textDistance`, and variables that start with scaleBar: `scaleBarWidth`, `scaleBarColor`, etc.
 
-```{r plot w/o image Sample_ID, eval=FALSE}
+```{r plot w/o image Sample_ID}
 plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)
 ```
 
