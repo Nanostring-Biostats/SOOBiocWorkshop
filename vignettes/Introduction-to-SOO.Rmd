@@ -30,7 +30,7 @@ The SpatialOmicsOverlay package is [now available](https://bioconductor.org/pack
 
 The mouse brain sample in this vignette is one of [four available](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/mouse-brain/) from our [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/mouse-brain/). While we will be looking at only one sample, any of the data from our freely-downloadable Spatial Organ Atlas samples would also suffice as an alternative.
 
-```{r pyramidal tiff, echo=FALSE, fig.cap="Mouse brain", out.width = '50%'}
+```{r pyramidal tiff, echo=FALSE, fig.cap="Mouse brain", out.width = '50%', eval=FALSE}
 knitr::include_graphics("./4channel.png")
 ```
 
@@ -168,7 +168,7 @@ Images can be added automatically using `readSpatialOverlay(image = TRUE)` or ad
 
 An OME-TIFF file is a pyramidal file, meaning that many resolutions (sizes) of an image are saved. The largest slice has the highest resolution. Size decreases as the image gets smaller. Images are 1/2 the length and width as the previous resolution. Stacked upon each other, one can conceptualize a "pyramidal" shape. 
 
-```{r pyramidal tiff, echo=FALSE, fig.cap="Pyramidal TIFF", out.width = '50%'}
+```{r pyramidal tiff, echo=FALSE, fig.cap="Pyramidal TIFF", out.width = '50%', eval=FALSE}
 knitr::include_graphics("./pyramidalTIFF.png")
 ```
 
