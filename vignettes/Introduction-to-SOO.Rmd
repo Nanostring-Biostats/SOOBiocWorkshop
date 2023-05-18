@@ -89,6 +89,7 @@ tifFile <- downloadMouseBrainImage()
 tifFile
 ```
 
+`downloadMouseBrainImage()` will download files, in this workshop, to the `/home/rstudio/.cache/R/SpatialOmicsOverlay/` folder.
 
 Reading in the SpatialOverlay object can be done with or without the image. We will start without the image, as that can be added later. 
 
@@ -130,7 +131,7 @@ While manipulating the figure, there is a low-resolution option for faster rende
 
 A scale bar is automatically calculated when plotting. This functionality can be turned off using `scaleBar = FALSE`. Scale bars can be fully customized using `corner`, `textDistance`, and variables that start with scaleBar: `scaleBarWidth`, `scaleBarColor`, etc.
 
-```{r plot w/o image Sample_ID}
+```{r plot w/o image Sample_ID, eval=FALSE}
 plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)
 ```
 
