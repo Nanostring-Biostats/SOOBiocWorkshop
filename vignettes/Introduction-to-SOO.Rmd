@@ -164,18 +164,18 @@ The resolution size will affect speed and image resolution through the rest of t
 
 Note: If `res =4` is giving you an error, try restarting R and/or increasing the `res` value (remember higher `res` parameter = higher slice on OME-TIFF pyramid = smaller and lower resolution image).
 
-```{r add image}
-# #lowest resolution = fastest speeds
-# checkValidRes(ometiff = tifFile)
-# res <- 4
-# muBrain <- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)
-# muBrain
-# showImage(muBrain)
+```{r add image, eval=FALSE}
+#lowest resolution = fastest speeds
+checkValidRes(ometiff = tifFile)
+res <- 4
+muBrain <- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)
+muBrain
+showImage(muBrain)
 ```
 
-```{r plot with image}
-# plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",
-#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan")
+```{r plot with image, eval=FALSE}
+plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",
+                   scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan")
 ```
 
 ### Visualization Marker Legends
@@ -184,25 +184,25 @@ There are two ways to add a legend to the graph showing the immunofluorescence v
 
 The first is an easy way for data exploration: adding a legend to the ggplot object directly by setting `flourLegend = TRUE`. 
 
-```{r fluorLegend in plotSpatialOverlay}
-# plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",
-#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan",
-#                    fluorLegend = TRUE)
+```{r fluorLegend in plotSpatialOverlay, eval=FALSE}
+plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",
+                   scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan",
+                   fluorLegend = TRUE)
 ```
 
 The second requires more user manipulation, but creates a more publication-ready figure. The `flourLegend` function creates a separate plot that can be added to the graph. The legend shape can be changed with `nrow` and the background can be changed using `boxColor` and `alpha`. 
 
 See `?draw_plot` for more instructions on how to manipulate the legend position and scale. 
 
-```{r fluorLegend function}
-# library(cowplot)
-# gp <- plotSpatialOverlay(overlay = muBrain, colorBy = "segment",
-#                          corner = "bottomright")
-# legend <- fluorLegend(muBrain, nrow = 2, textSize = 4,
-#                       boxColor = "grey85", alpha = 0.3)
-# cowplot::ggdraw() +
-#     cowplot::draw_plot(gp) +
-#     cowplot::draw_plot(legend, scale = 0.105, x = 0.1, y = -0.25)
+```{r fluorLegend function, eval=FALSE}
+library(cowplot)
+gp <- plotSpatialOverlay(overlay = muBrain, colorBy = "segment",
+                         corner = "bottomright")
+legend <- fluorLegend(muBrain, nrow = 2, textSize = 4,
+                      boxColor = "grey85", alpha = 0.3)
+cowplot::ggdraw() +
+    cowplot::draw_plot(gp) +
+    cowplot::draw_plot(legend, scale = 0.105, x = 0.1, y = -0.25)
 ```
 
 
@@ -214,10 +214,10 @@ Images and overlays can be flipped across either axis to reorient the image. To 
 
 In this example, the original image is reversed from the traditional view of the mouse brain, so we shall flip the y-axis. 
 
-```{r flip axes}
-# muBrain <- flipY(muBrain)
-# plotSpatialOverlay(overlay = muBrain, colorBy = "segment", scaleBar = FALSE)
-# plotSpatialOverlay(overlay = flipX(muBrain), colorBy = "segment", scaleBar = FALSE)
+```{r flip axes, eval=FALSE}
+muBrain <- flipY(muBrain)
+plotSpatialOverlay(overlay = muBrain, colorBy = "segment", scaleBar = FALSE)
+plotSpatialOverlay(overlay = flipX(muBrain), colorBy = "segment", scaleBar = FALSE)
 ```
 
 
@@ -227,26 +227,26 @@ Images can be cropped in two ways. The amount of area added to the cropped area 
 
 1. `cropTissue` automatically detects where the tissue is and removes non-tissue area from around the tissue.  
 
-```{r crop tissue}
-# muBrain <- cropTissue(overlay = muBrain, buffer = 0.05)
-# plotSpatialOverlay(overlay = muBrain, colorBy = "ROILabel", legend = FALSE, scaleBar = FALSE)+
-#     viridis::scale_fill_viridis(option = "C")
+```{r crop tissue, eval=FALSE}
+muBrain <- cropTissue(overlay = muBrain, buffer = 0.05)
+plotSpatialOverlay(overlay = muBrain, colorBy = "ROILabel", legend = FALSE, scaleBar = FALSE)+
+    viridis::scale_fill_viridis(option = "C")
 ```
 2. `cropSamples` automatically crops the image around the ROIs given. Other ROIs in the cropped image can be kept in or ignored. Below we will crop to only ROIs that are unsegmented, hiding ROIs profiles that are segmented. Setting `sampsOnly = TRUE` hides the segmented ROIs within the plotted region. 
 
-```{r crop samples}
-# samps <- muBrainAnnots$Sample_ID[muBrainAnnots$segment == "Full ROI" &
-#                                      muBrainAnnots$slide.name == slideName(muBrain)]
-# 
-# muBrainCrop <- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = TRUE)
-# plotSpatialOverlay(overlay = muBrainCrop, colorBy = "Calm1", scaleBar = TRUE,
-#                    corner = "bottomleft", textDistance = 5)+
-#     ggplot2::scale_fill_gradient2(low = "grey", high = "red",
-#                                   mid = "yellow", midpoint = 2500)
-# 
-# muBrainCrop <- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = FALSE)
-# plotSpatialOverlay(overlay = muBrainCrop, colorBy = "segment", scaleBar = TRUE,
-#                    corner = "bottomleft", textDistance = 5)
+```{r crop samples, eval=FALSE}
+samps <- muBrainAnnots$Sample_ID[muBrainAnnots$segment == "Full ROI" &
+                                     muBrainAnnots$slide.name == slideName(muBrain)]
+
+muBrainCrop <- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = TRUE)
+plotSpatialOverlay(overlay = muBrainCrop, colorBy = "Calm1", scaleBar = TRUE,
+                   corner = "bottomleft", textDistance = 5)+
+    ggplot2::scale_fill_gradient2(low = "grey", high = "red",
+                                  mid = "yellow", midpoint = 2500)
+
+muBrainCrop <- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = FALSE)
+plotSpatialOverlay(overlay = muBrainCrop, colorBy = "segment", scaleBar = TRUE,
+                   corner = "bottomleft", textDistance = 5)
 ```
 
 ### Image Coloring
@@ -257,17 +257,17 @@ This recoloring must be done on the 4-channel image before converting to RGB. Th
 
 The color can be a hex color or a valid R color name. The dye can either come from the `Dye` or `DisplayName` columns from `fluor(overlay)`. To change a color, use the `changeImageColoring` function.
 
-```{r image coloring}
-# chan4 <- add4ChannelImage(overlay = muBrain)
-# fluor(chan4)
-# chan4 <- changeImageColoring(overlay = chan4, color = "#32a8a4", dye = "FITC")
-# chan4 <- changeImageColoring(overlay = chan4, color = "magenta", dye = "Alexa 647")
-# chan4 <- changeColoringIntensity(overlay = chan4, minInten = 500,
-#                                  maxInten = 10000, dye = "Cy5")
-# fluor(chan4)
-# # change 4 channel TIFF to RGB
-# chan4 <- recolor(chan4)
-# showImage(chan4)
+```{r image coloring, eval=FALSE}
+chan4 <- add4ChannelImage(overlay = muBrain)
+fluor(chan4)
+chan4 <- changeImageColoring(overlay = chan4, color = "#32a8a4", dye = "FITC")
+chan4 <- changeImageColoring(overlay = chan4, color = "magenta", dye = "Alexa 647")
+chan4 <- changeColoringIntensity(overlay = chan4, minInten = 500,
+                                 maxInten = 10000, dye = "Cy5")
+fluor(chan4)
+# change 4 channel TIFF to RGB
+chan4 <- recolor(chan4)
+showImage(chan4)
 ```
 
 # Future Directions
@@ -281,6 +281,6 @@ In future releases of `SpatialOmicsOverlay`, we will be:
 
 
 For your reference:
-```{r}
-# sessionInfo()
+```{r, eval=FALSE}
+sessionInfo()
 ```
