@@ -88,8 +88,8 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to SpatialOmicsOverlay</h1>
-                        <h4 data-toc-skip class="author">Maddy Griswold
-and Megan Vandenberg<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+                        <h4 data-toc-skip class="author">Maddy Griswold,
+Megan Vandenberg, and Stephanie Zimmerman<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 </h4>
             
       
@@ -100,22 +100,6 @@ and Megan Vandenberg<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup>
 
     
     
-<div class="section level2">
-<h2 id="adjust-path">Adjust PATH<a class="anchor" aria-label="anchor" href="#adjust-path"></a>
-</h2>
-<p>Required to properly load the SpatialOmicsOverlay dependency
-RBioFormats.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">old_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span>, intern<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"RBioFormats"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">new_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"/usr/local/lib/R/site-library/RBioFormats/"</span>, sep <span class="op">=</span> <span class="st">":"</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>PATH <span class="op">=</span> <span class="va">new_path</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span><span class="op">)</span></span></code></pre></div>
-<p><strong><em>Restart R after running the above
-chunk.</em></strong></p>
-</div>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -136,15 +120,62 @@ suffice.</p>
 available</a> through Bioconductor.</p>
 </div>
 <div class="section level2">
+<h2 id="adjust-path">Adjust PATH<a class="anchor" aria-label="anchor" href="#adjust-path"></a>
+</h2>
+<p>Required to properly load the SpatialOmicsOverlay dependency
+RBioFormats.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">old_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span>, intern<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"RBioFormats"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">new_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"/usr/local/lib/R/site-library/RBioFormats/"</span>, sep <span class="op">=</span> <span class="st">":"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>PATH <span class="op">=</span> <span class="va">new_path</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span><span class="op">)</span></span></code></pre></div>
+<p><strong><em>Restart R after running the above
+chunk.</em></strong></p>
+</div>
+<div class="section level2">
 <h2 id="load-libraries">Load Libraries<a class="anchor" aria-label="anchor" href="#load-libraries"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># library(SpatialOmicsOverlay)</span></span>
-<span><span class="co"># library(GeomxTools)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># library(ggplot2)</span></span>
-<span><span class="co"># df &lt;- data.frame(x = c(1,2,3), y = c(4,6,8))</span></span>
-<span><span class="co">#  ggplot(df, aes(x = x, y = y)) + geom_point()</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SpatialOmicsOverlay</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Registered S3 method overwritten by 'GGally':</span></span>
+<span><span class="co">#&gt;   method from   </span></span>
+<span><span class="co">#&gt;   +.gg   ggplot2</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">GeomxTools</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: Biobase</span></span>
+<span><span class="co">#&gt; Loading required package: BiocGenerics</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'BiocGenerics'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     IQR, mad, sd, var, xtabs</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     anyDuplicated, aperm, append, as.data.frame, basename, cbind,</span></span>
+<span><span class="co">#&gt;     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,</span></span>
+<span><span class="co">#&gt;     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,</span></span>
+<span><span class="co">#&gt;     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,</span></span>
+<span><span class="co">#&gt;     Position, rank, rbind, Reduce, rownames, sapply, setdiff, sort,</span></span>
+<span><span class="co">#&gt;     table, tapply, union, unique, unsplit, which.max, which.min</span></span>
+<span><span class="co">#&gt; Welcome to Bioconductor</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Vignettes contain introductory material; view with</span></span>
+<span><span class="co">#&gt;     'browseVignettes()'. To cite Bioconductor, see</span></span>
+<span><span class="co">#&gt;     'citation("Biobase")', and for packages 'citation("pkgname")'.</span></span>
+<span><span class="co">#&gt; Loading required package: NanoStringNCTools</span></span>
+<span><span class="co">#&gt; Loading required package: S4Vectors</span></span>
+<span><span class="co">#&gt; Loading required package: stats4</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'S4Vectors'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     findMatches</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     expand.grid, I, unname</span></span>
+<span><span class="co">#&gt; Loading required package: ggplot2</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data-ingestion">Data Ingestion<a class="anchor" aria-label="anchor" href="#data-ingestion"></a>
@@ -171,9 +202,10 @@ keep a 4 GB file in BiocFileCache. This download should take ~15
 minutes, but you will only have to download once. Note this will
 download inside of the Docker image, but requires sufficient space on
 your device hosting the image.</em></strong></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># tifFile &lt;- downloadMouseBrainImage()</span></span>
-<span><span class="co"># tifFile</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">tifFile</span></span>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/4923a44c62a_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <p>Reading in the SpatialOverlay object can be done with or without the
 image. We will start without the image, as that can be added later.</p>
 <p>If <code>outline = TRUE</code>, only ROI outline points are saved.
@@ -181,12 +213,18 @@ This decreases memory needed and figure rendering time downstream. If
 ANY ROIs are segmented in the study, outline will be FALSE. In this
 particular example, there are segmented ROIs, so we set
 <code>outline = FALSE</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrainLW &lt;- system.file("extdata", "muBrain_LabWorksheet.txt",</span></span>
-<span><span class="co">#                         package = "SpatialOmicsOverlay")</span></span>
-<span><span class="co"># muBrain &lt;- readSpatialOverlay(ometiff = tifFile, annots = muBrainLW,</span></span>
-<span><span class="co">#                              slideName = "4", image = FALSE,</span></span>
-<span><span class="co">#                              saveFile = FALSE, outline = FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">muBrainLW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"muBrain_LabWorksheet.txt"</span>,</span>
+<span>                        package <span class="op">=</span> <span class="st">"SpatialOmicsOverlay"</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/readSpatialOverlay.html" class="external-link">readSpatialOverlay</a></span><span class="op">(</span>ometiff <span class="op">=</span> <span class="va">tifFile</span>, annots <span class="op">=</span> <span class="va">muBrainLW</span>,</span>
+<span>                             slideName <span class="op">=</span> <span class="st">"4"</span>, image <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                             saveFile <span class="op">=</span> <span class="cn">FALSE</span>, outline <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Extracting XML</span></span>
+<span><span class="co">#&gt; Parsing XML - scan metadata</span></span>
+<span><span class="co">#&gt; Parsing XML - overlay data</span></span>
+<span><span class="co">#&gt; Warning in parseOverlayAttrs(omexml = xml, annots = annots, labworksheet = labWorksheet): Some AOIs do not match annotation file. </span></span>
+<span><span class="co">#&gt; Not Matched: DSP-1012996073013-H-C01, DSP-1012996073013-H-C07, DSP-1012996073013-H-C08, DSP-1012996073013-H-C09, DSP-1012996073013-H-C12, DSP-1012996073013-H-G02</span></span>
+<span><span class="co">#&gt; Generating Coordinates</span></span></code></pre></div>
 <p>The <code>readSpatialOverlay</code> function is a wrapper to walk
 through all of the necessary steps to store the OME-TIFF file
 components. This function automates XML extraction &amp; parsing, image
@@ -200,33 +238,44 @@ separately if desired (<code>xmlExtraction</code>,
 </h2>
 <p>SpatialOverlay objects hold data specific to the image and the ROIs.
 Here are a couple of functions to access the most important parts.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># #full object</span></span>
-<span><span class="co"># muBrain</span></span>
-<span><span class="co"># #sample names</span></span>
-<span><span class="co"># head(sampNames(muBrain))</span></span>
-<span><span class="co"># #slide name</span></span>
-<span><span class="co"># slideName(muBrain)</span></span>
-<span><span class="co"># #metadata of ROI overlays</span></span>
-<span><span class="co"># #Height, Width, X, Y values are in pixels</span></span>
-<span><span class="co"># head(meta(overlay(muBrain)))</span></span>
-<span><span class="co"># #coordinates of each ROI</span></span>
-<span><span class="co"># head(coords(muBrain))</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrainAnnots &lt;- readLabWorksheet(lw = muBrainLW, slideName = "4")</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># rownames(muBrainAnnots) &lt;- 1:nrow(muBrainAnnots)</span></span>
-<span><span class="co">#  IDs &lt;- muBrainAnnots[c(1:5),"Sample_ID"]</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co">#  res &lt;- 4</span></span>
-<span><span class="co">#  muBrain &lt;- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co">#  </span></span>
-<span><span class="co">#   crop &lt;- cropSamples(overlay = muBrain, sampleIDs = IDs, sampsOnly = T)</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># p &lt;- plotSpatialOverlay(overlay = crop, hiRes = TRUE, legend = FALSE, image = FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#full object</span></span>
+<span><span class="va">muBrain</span></span>
+<span><span class="co">#&gt; SpatialOverlay </span></span>
+<span><span class="co">#&gt; Slide Name: 4 </span></span>
+<span><span class="co">#&gt; Overlay Data: 87 samples </span></span>
+<span><span class="co">#&gt;    Overlay Names: DSP-1012996073013-H-A02 ... DSP-1012996073013-H-H09 ( 87 total ) </span></span>
+<span><span class="co">#&gt; Scan Metadata </span></span>
+<span><span class="co">#&gt;    Panels: TAP Mouse Whole Transcriptome Atlas </span></span>
+<span><span class="co">#&gt;    Segmentation: Segmented </span></span>
+<span><span class="co">#&gt; Outline: FALSE</span></span>
+<span><span class="co">#sample names</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">sampNames</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "DSP-1012996073013-H-A02" "DSP-1012996073013-H-A03"</span></span>
+<span><span class="co">#&gt; [3] "DSP-1012996073013-H-A04" "DSP-1012996073013-H-A05"</span></span>
+<span><span class="co">#&gt; [5] "DSP-1012996073013-H-A06" "DSP-1012996073013-H-A07"</span></span>
+<span><span class="co">#slide name</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">slideName</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "4"</span></span>
+<span><span class="co">#metadata of ROI overlays</span></span>
+<span><span class="co">#Height, Width, X, Y values are in pixels</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialPosition-class.html" class="external-link">meta</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">overlay</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ROILabel               Sample_ID Height Width     X     Y Segmentation</span></span>
+<span><span class="co">#&gt; 1        1 DSP-1012996073013-H-A02    751   751 10363 15008    Geometric</span></span>
+<span><span class="co">#&gt; 2        2 DSP-1012996073013-H-A03   1239   782 14346 16630    Geometric</span></span>
+<span><span class="co">#&gt; 3        3 DSP-1012996073013-H-A04   1272   902 15664 16603    Geometric</span></span>
+<span><span class="co">#&gt; 4        4 DSP-1012996073013-H-A05   1119  1276 13707 16135    Geometric</span></span>
+<span><span class="co">#&gt; 5        5 DSP-1012996073013-H-A06   1054  1124 15932 16228    Geometric</span></span>
+<span><span class="co">#&gt; 6        6 DSP-1012996073013-H-A07    751   751 10756 14259    Geometric</span></span>
+<span><span class="co">#coordinates of each ROI</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">coords</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                  sampleID ycoor xcoor</span></span>
+<span><span class="co">#&gt; 1 DSP-1012996073013-H-A02 15383 10363</span></span>
+<span><span class="co">#&gt; 2 DSP-1012996073013-H-A02 15356 10364</span></span>
+<span><span class="co">#&gt; 3 DSP-1012996073013-H-A02 15357 10364</span></span>
+<span><span class="co">#&gt; 4 DSP-1012996073013-H-A02 15358 10364</span></span>
+<span><span class="co">#&gt; 5 DSP-1012996073013-H-A02 15359 10364</span></span>
+<span><span class="co">#&gt; 6 DSP-1012996073013-H-A02 15360 10364</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plotting-without-image">Plotting Without Image<a class="anchor" aria-label="anchor" href="#plotting-without-image"></a>
@@ -244,26 +293,26 @@ functionality can be turned off using <code>scaleBar = FALSE</code>.
 Scale bars can be fully customized using <code>corner</code>,
 <code>textDistance</code>, and variables that start with scaleBar:
 <code>scaleBarWidth</code>, <code>scaleBarColor</code>, etc.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, hiRes = FALSE, legend = FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, hiRes <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><code>colorBy</code>, by default, is Sample_ID but almost any
 annotation or data can be added instead, including gene expression,
 tissue morphology annotations, pathway score, etc. These annotations can
 come from a data.frame, matrix, GeomxSet object, or vector. Below we
 attach the gene expression for CALM1 from a GeomxSet object and color
 the segments by that value.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrainAnnots &lt;- readLabWorksheet(lw = muBrainLW, slideName = "4")</span></span>
-<span><span class="co"># muBrainGeomxSet &lt;- readRDS(unzip(system.file("extdata", "muBrain_GxT.zip",</span></span>
-<span><span class="co">#                                  package = "SpatialOmicsOverlay")))</span></span>
-<span><span class="co"># muBrain &lt;- addPlottingFactor(overlay = muBrain, annots = muBrainAnnots,</span></span>
-<span><span class="co">#                             plottingFactor = "segment")</span></span>
-<span><span class="co"># muBrain &lt;- addPlottingFactor(overlay = muBrain, annots = muBrainGeomxSet,</span></span>
-<span><span class="co">#                              plottingFactor = "Calm1")</span></span>
-<span><span class="co"># muBrain &lt;- addPlottingFactor(overlay = muBrain, annots = 1:length(sampNames(muBrain)),</span></span>
-<span><span class="co">#                              plottingFactor = "ROILabel")</span></span>
-<span><span class="co"># muBrain</span></span>
-<span><span class="co"># head(plotFactors(muBrain))</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">muBrainAnnots</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/readLabWorksheet.html" class="external-link">readLabWorksheet</a></span><span class="op">(</span>lw <span class="op">=</span> <span class="va">muBrainLW</span>, slideName <span class="op">=</span> <span class="st">"4"</span><span class="op">)</span></span>
+<span><span class="va">muBrainGeomxSet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/unzip.html" class="external-link">unzip</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"muBrain_GxT.zip"</span>,</span>
+<span>                                 package <span class="op">=</span> <span class="st">"SpatialOmicsOverlay"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/addPlottingFactor.html" class="external-link">addPlottingFactor</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, annots <span class="op">=</span> <span class="va">muBrainAnnots</span>,</span>
+<span>                            plottingFactor <span class="op">=</span> <span class="st">"segment"</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/addPlottingFactor.html" class="external-link">addPlottingFactor</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, annots <span class="op">=</span> <span class="va">muBrainGeomxSet</span>,</span>
+<span>                             plottingFactor <span class="op">=</span> <span class="st">"Calm1"</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/addPlottingFactor.html" class="external-link">addPlottingFactor</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, annots <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">sampNames</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                             plottingFactor <span class="op">=</span> <span class="st">"ROILabel"</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">plotFactors</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="customizing-the-graph">Customizing the graph<a class="anchor" aria-label="anchor" href="#customizing-the-graph"></a>
@@ -274,11 +323,11 @@ packages. For example, we can change the color scale to the
 <code>viridis</code> color palette.</p>
 <p><strong>Note: <code>hiRes</code> and <code>outline</code> figures use
 fill. <code>lowRes</code> uses color.</strong></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, hiRes = TRUE, colorBy = "Calm1",</span></span>
-<span><span class="co">#                    scaleBarWidth = 0.3, scaleBarColor = "green") +</span></span>
-<span><span class="co">#     viridis::scale_color_viridis()+</span></span>
-<span><span class="co">#     ggplot2::labs(title = "Calm1 Expression in Mouse Brain")</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, hiRes <span class="op">=</span> <span class="cn">TRUE</span>, colorBy <span class="op">=</span> <span class="st">"Calm1"</span>,</span>
+<span>                   scaleBarWidth <span class="op">=</span> <span class="fl">0.3</span>, scaleBarColor <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">viridis</span><span class="fu">::</span><span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html" class="external-link">scale_color_viridis</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Calm1 Expression in Mouse Brain"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="adding-the-image">Adding the Image<a class="anchor" aria-label="anchor" href="#adding-the-image"></a>
@@ -306,7 +355,7 @@ system.</p>
   java.lang.NegativeArraySizeException: -2147483648</code></pre>
 <p>The resolution size will affect speed and image resolution through
 the rest of the analysis. To check the smallest resolution size
-available, for the fastest speeds, use <code>checkValidRes()</code>. For
+available, for the fastest speeds, use <code><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/checkValidRes.html" class="external-link">checkValidRes()</a></code>. For
 the rest of this tutorial we will be using <code>res = 4</code> for
 vignette size restrictions; <code>res</code> 4-6 is generally
 recommended.</p>
@@ -314,14 +363,14 @@ recommended.</p>
 and/or increasing the <code>res</code> value (remember higher
 <code>res</code> parameter = higher slice on OME-TIFF pyramid = smaller
 and lower resolution image).</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># #lowest resolution = fastest speeds</span></span>
 <span><span class="co"># checkValidRes(ometiff = tifFile)</span></span>
 <span><span class="co"># res &lt;- 4</span></span>
 <span><span class="co"># muBrain &lt;- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)</span></span>
 <span><span class="co"># muBrain</span></span>
 <span><span class="co"># showImage(muBrain)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",</span></span>
 <span><span class="co">#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan")</span></span></code></pre></div>
 <div class="section level4">
@@ -331,7 +380,7 @@ and lower resolution image).</p>
 immunofluorescence visualization markers used.</p>
 <p>The first is an easy way for data exploration: adding a legend to the
 ggplot object directly by setting <code>flourLegend = TRUE</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",</span></span>
 <span><span class="co">#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan",</span></span>
 <span><span class="co">#                    fluorLegend = TRUE)</span></span></code></pre></div>
@@ -342,7 +391,7 @@ changed with <code>nrow</code> and the background can be changed using
 <code>boxColor</code> and <code>alpha</code>.</p>
 <p>See <code>?draw_plot</code> for more instructions on how to
 manipulate the legend position and scale.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># library(cowplot)</span></span>
 <span><span class="co"># gp &lt;- plotSpatialOverlay(overlay = muBrain, colorBy = "segment",</span></span>
 <span><span class="co">#                          corner = "bottomright")</span></span>
@@ -368,7 +417,7 @@ flipped, after adding in the image, you can run
 <code>plotSpatialOverlay(image=FALSE)</code>.</p>
 <p>In this example, the original image is reversed from the traditional
 view of the mouse brain, so we shall flip the y-axis.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># muBrain &lt;- flipY(muBrain)</span></span>
 <span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", scaleBar = FALSE)</span></span>
 <span><span class="co"># plotSpatialOverlay(overlay = flipX(muBrain), colorBy = "segment", scaleBar = FALSE)</span></span></code></pre></div>
@@ -384,7 +433,7 @@ adds a percentage of the final image size to each edge.</p>
 <code>cropTissue</code> automatically detects where the tissue is
 and removes non-tissue area from around the tissue.</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># muBrain &lt;- cropTissue(overlay = muBrain, buffer = 0.05)</span></span>
 <span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "ROILabel", legend = FALSE, scaleBar = FALSE)+</span></span>
 <span><span class="co">#     viridis::scale_fill_viridis(option = "C")</span></span></code></pre></div>
@@ -396,7 +445,7 @@ Below we will crop to only ROIs that are unsegmented, hiding ROIs
 profiles that are segmented. Setting <code>sampsOnly = TRUE</code> hides
 the segmented ROIs within the plotted region.</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># samps &lt;- muBrainAnnots$Sample_ID[muBrainAnnots$segment == "Full ROI" &amp;</span></span>
 <span><span class="co">#                                      muBrainAnnots$slide.name == slideName(muBrain)]</span></span>
 <span><span class="co"># </span></span>
@@ -425,7 +474,7 @@ the RGB image. To view the current color definition use the
 either come from the <code>Dye</code> or <code>DisplayName</code>
 columns from <code>fluor(overlay)</code>. To change a color, use the
 <code>changeImageColoring</code> function.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># chan4 &lt;- add4ChannelImage(overlay = muBrain)</span></span>
 <span><span class="co"># fluor(chan4)</span></span>
 <span><span class="co"># chan4 &lt;- changeImageColoring(overlay = chan4, color = "#32a8a4", dye = "FITC")</span></span>
@@ -451,7 +500,7 @@ Spatial Molecular Imager</a> outputs.</li>
 <li>Adding extraction of image data to use in ML/AI applications.</li>
 </ol>
 <p>For your reference:</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># sessionInfo()</span></span></code></pre></div>
 </div>
 <div class="footnotes footnotes-end-of-document">
