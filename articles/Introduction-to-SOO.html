@@ -50,13 +50,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/HOWTO_BUILD_WORKSHOP.html">How To Build A Workshop Package</a>
-    </li>
-    <li>
       <a href="../articles/Introduction-to-SOO.html">Introduction to SpatialOmicsOverlay</a>
-    </li>
-    <li>
-      <a href="../articles/workshop_example.html">An Example Workshop</a>
     </li>
   </ul>
 </li>
@@ -205,7 +199,7 @@ your device hosting the image.</em></strong></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">tifFile</span></span>
-<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/4923a44c62a_mu_brain_004.ome.tiff"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/48f6b1716fb_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <p>Reading in the SpatialOverlay object can be done with or without the
 image. We will start without the image, as that can be added later.</p>
 <p>If <code>outline = TRUE</code>, only ROI outline points are saved.
@@ -364,15 +358,15 @@ and/or increasing the <code>res</code> value (remember higher
 <code>res</code> parameter = higher slice on OME-TIFF pyramid = smaller
 and lower resolution image).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># #lowest resolution = fastest speeds</span></span>
-<span><span class="co"># checkValidRes(ometiff = tifFile)</span></span>
-<span><span class="co"># res &lt;- 4</span></span>
-<span><span class="co"># muBrain &lt;- addImageOmeTiff(overlay = muBrain, ometiff = tifFile, res = res)</span></span>
-<span><span class="co"># muBrain</span></span>
-<span><span class="co"># showImage(muBrain)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#lowest resolution = fastest speeds</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/checkValidRes.html" class="external-link">checkValidRes</a></span><span class="op">(</span>ometiff <span class="op">=</span> <span class="va">tifFile</span><span class="op">)</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
+<span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/addImageOmeTiff.html" class="external-link">addImageOmeTiff</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, ometiff <span class="op">=</span> <span class="va">tifFile</span>, res <span class="op">=</span> <span class="va">res</span><span class="op">)</span></span>
+<span><span class="va">muBrain</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">showImage</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",</span></span>
-<span><span class="co">#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan")</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>, corner <span class="op">=</span> <span class="st">"topcenter"</span>,</span>
+<span>                   scaleBarWidth <span class="op">=</span> <span class="fl">0.5</span>, textDistance <span class="op">=</span> <span class="fl">130</span>, scaleBarColor <span class="op">=</span> <span class="st">"cyan"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="visualization-marker-legends">Visualization Marker Legends<a class="anchor" aria-label="anchor" href="#visualization-marker-legends"></a>
 </h4>
@@ -381,25 +375,25 @@ immunofluorescence visualization markers used.</p>
 <p>The first is an easy way for data exploration: adding a legend to the
 ggplot object directly by setting <code>flourLegend = TRUE</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", corner = "topcenter",</span></span>
-<span><span class="co">#                    scaleBarWidth = 0.5, textDistance = 130, scaleBarColor = "cyan",</span></span>
-<span><span class="co">#                    fluorLegend = TRUE)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>, corner <span class="op">=</span> <span class="st">"topcenter"</span>,</span>
+<span>                   scaleBarWidth <span class="op">=</span> <span class="fl">0.5</span>, textDistance <span class="op">=</span> <span class="fl">130</span>, scaleBarColor <span class="op">=</span> <span class="st">"cyan"</span>,</span>
+<span>                   fluorLegend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The second requires more user manipulation, but creates a more
 publication-ready figure. The <code>flourLegend</code> function creates
 a separate plot that can be added to the graph. The legend shape can be
 changed with <code>nrow</code> and the background can be changed using
 <code>boxColor</code> and <code>alpha</code>.</p>
-<p>See <code>?draw_plot</code> for more instructions on how to
+<p>See <code><a href="https://wilkelab.org/cowplot/reference/draw_plot.html" class="external-link">?draw_plot</a></code> for more instructions on how to
 manipulate the legend position and scale.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># library(cowplot)</span></span>
-<span><span class="co"># gp &lt;- plotSpatialOverlay(overlay = muBrain, colorBy = "segment",</span></span>
-<span><span class="co">#                          corner = "bottomright")</span></span>
-<span><span class="co"># legend &lt;- fluorLegend(muBrain, nrow = 2, textSize = 4,</span></span>
-<span><span class="co">#                       boxColor = "grey85", alpha = 0.3)</span></span>
-<span><span class="co"># cowplot::ggdraw() +</span></span>
-<span><span class="co">#     cowplot::draw_plot(gp) +</span></span>
-<span><span class="co">#     cowplot::draw_plot(legend, scale = 0.105, x = 0.1, y = -0.25)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/" class="external-link">cowplot</a></span><span class="op">)</span></span>
+<span><span class="va">gp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>,</span>
+<span>                         corner <span class="op">=</span> <span class="st">"bottomright"</span><span class="op">)</span></span>
+<span><span class="va">legend</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/fluorLegend.html" class="external-link">fluorLegend</a></span><span class="op">(</span><span class="va">muBrain</span>, nrow <span class="op">=</span> <span class="fl">2</span>, textSize <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>                      boxColor <span class="op">=</span> <span class="st">"grey85"</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span>
+<span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html" class="external-link">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_plot.html" class="external-link">draw_plot</a></span><span class="op">(</span><span class="va">gp</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_plot.html" class="external-link">draw_plot</a></span><span class="op">(</span><span class="va">legend</span>, scale <span class="op">=</span> <span class="fl">0.105</span>, x <span class="op">=</span> <span class="fl">0.1</span>, y <span class="op">=</span> <span class="op">-</span><span class="fl">0.25</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -418,9 +412,9 @@ flipped, after adding in the image, you can run
 <p>In this example, the original image is reversed from the traditional
 view of the mouse brain, so we shall flip the y-axis.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrain &lt;- flipY(muBrain)</span></span>
-<span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "segment", scaleBar = FALSE)</span></span>
-<span><span class="co"># plotSpatialOverlay(overlay = flipX(muBrain), colorBy = "segment", scaleBar = FALSE)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/flipY.html" class="external-link">flipY</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>, scaleBar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/flipX.html" class="external-link">flipX</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>, scaleBar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="cropping">Cropping<a class="anchor" aria-label="anchor" href="#cropping"></a>
@@ -434,9 +428,9 @@ adds a percentage of the final image size to each edge.</p>
 and removes non-tissue area from around the tissue.</li>
 </ol>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># muBrain &lt;- cropTissue(overlay = muBrain, buffer = 0.05)</span></span>
-<span><span class="co"># plotSpatialOverlay(overlay = muBrain, colorBy = "ROILabel", legend = FALSE, scaleBar = FALSE)+</span></span>
-<span><span class="co">#     viridis::scale_fill_viridis(option = "C")</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">muBrain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/cropTissue.html" class="external-link">cropTissue</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, buffer <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, colorBy <span class="op">=</span> <span class="st">"ROILabel"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>, scaleBar <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">viridis</span><span class="fu">::</span><span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html" class="external-link">scale_fill_viridis</a></span><span class="op">(</span>option <span class="op">=</span> <span class="st">"C"</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>
 <code>cropSamples</code> automatically crops the image around the
@@ -446,18 +440,18 @@ profiles that are segmented. Setting <code>sampsOnly = TRUE</code> hides
 the segmented ROIs within the plotted region.</li>
 </ol>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># samps &lt;- muBrainAnnots$Sample_ID[muBrainAnnots$segment == "Full ROI" &amp;</span></span>
-<span><span class="co">#                                      muBrainAnnots$slide.name == slideName(muBrain)]</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># muBrainCrop &lt;- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = TRUE)</span></span>
-<span><span class="co"># plotSpatialOverlay(overlay = muBrainCrop, colorBy = "Calm1", scaleBar = TRUE,</span></span>
-<span><span class="co">#                    corner = "bottomleft", textDistance = 5)+</span></span>
-<span><span class="co">#     ggplot2::scale_fill_gradient2(low = "grey", high = "red",</span></span>
-<span><span class="co">#                                   mid = "yellow", midpoint = 2500)</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co"># muBrainCrop &lt;- cropSamples(overlay = muBrain, sampleIDs = samps, sampsOnly = FALSE)</span></span>
-<span><span class="co"># plotSpatialOverlay(overlay = muBrainCrop, colorBy = "segment", scaleBar = TRUE,</span></span>
-<span><span class="co">#                    corner = "bottomleft", textDistance = 5)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">samps</span> <span class="op">&lt;-</span> <span class="va">muBrainAnnots</span><span class="op">$</span><span class="va">Sample_ID</span><span class="op">[</span><span class="va">muBrainAnnots</span><span class="op">$</span><span class="va">segment</span> <span class="op">==</span> <span class="st">"Full ROI"</span> <span class="op">&amp;</span></span>
+<span>                                     <span class="va">muBrainAnnots</span><span class="op">$</span><span class="va">slide.name</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">slideName</a></span><span class="op">(</span><span class="va">muBrain</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">muBrainCrop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/cropSamples.html" class="external-link">cropSamples</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, sampleIDs <span class="op">=</span> <span class="va">samps</span>, sampsOnly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrainCrop</span>, colorBy <span class="op">=</span> <span class="st">"Calm1"</span>, scaleBar <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                   corner <span class="op">=</span> <span class="st">"bottomleft"</span>, textDistance <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"grey"</span>, high <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>                                  mid <span class="op">=</span> <span class="st">"yellow"</span>, midpoint <span class="op">=</span> <span class="fl">2500</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">muBrainCrop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/cropSamples.html" class="external-link">cropSamples</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span>, sampleIDs <span class="op">=</span> <span class="va">samps</span>, sampsOnly <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/plotSpatialOverlay.html" class="external-link">plotSpatialOverlay</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrainCrop</span>, colorBy <span class="op">=</span> <span class="st">"segment"</span>, scaleBar <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                   corner <span class="op">=</span> <span class="st">"bottomleft"</span>, textDistance <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="image-coloring">Image Coloring<a class="anchor" aria-label="anchor" href="#image-coloring"></a>
@@ -475,16 +469,16 @@ either come from the <code>Dye</code> or <code>DisplayName</code>
 columns from <code>fluor(overlay)</code>. To change a color, use the
 <code>changeImageColoring</code> function.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># chan4 &lt;- add4ChannelImage(overlay = muBrain)</span></span>
-<span><span class="co"># fluor(chan4)</span></span>
-<span><span class="co"># chan4 &lt;- changeImageColoring(overlay = chan4, color = "#32a8a4", dye = "FITC")</span></span>
-<span><span class="co"># chan4 &lt;- changeImageColoring(overlay = chan4, color = "magenta", dye = "Alexa 647")</span></span>
-<span><span class="co"># chan4 &lt;- changeColoringIntensity(overlay = chan4, minInten = 500,</span></span>
-<span><span class="co">#                                  maxInten = 10000, dye = "Cy5")</span></span>
-<span><span class="co"># fluor(chan4)</span></span>
-<span><span class="co"># # change 4 channel TIFF to RGB</span></span>
-<span><span class="co"># chan4 &lt;- recolor(chan4)</span></span>
-<span><span class="co"># showImage(chan4)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">chan4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/add4ChannelImage.html" class="external-link">add4ChannelImage</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">muBrain</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">fluor</a></span><span class="op">(</span><span class="va">chan4</span><span class="op">)</span></span>
+<span><span class="va">chan4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/changeImageColoring.html" class="external-link">changeImageColoring</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">chan4</span>, color <span class="op">=</span> <span class="st">"#32a8a4"</span>, dye <span class="op">=</span> <span class="st">"FITC"</span><span class="op">)</span></span>
+<span><span class="va">chan4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/changeImageColoring.html" class="external-link">changeImageColoring</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">chan4</span>, color <span class="op">=</span> <span class="st">"magenta"</span>, dye <span class="op">=</span> <span class="st">"Alexa 647"</span><span class="op">)</span></span>
+<span><span class="va">chan4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/changeColoringIntensity.html" class="external-link">changeColoringIntensity</a></span><span class="op">(</span>overlay <span class="op">=</span> <span class="va">chan4</span>, minInten <span class="op">=</span> <span class="fl">500</span>,</span>
+<span>                                 maxInten <span class="op">=</span> <span class="fl">10000</span>, dye <span class="op">=</span> <span class="st">"Cy5"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">fluor</a></span><span class="op">(</span><span class="va">chan4</span><span class="op">)</span></span>
+<span><span class="co"># change 4 channel TIFF to RGB</span></span>
+<span><span class="va">chan4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/recolor.html" class="external-link">recolor</a></span><span class="op">(</span><span class="va">chan4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/SpatialOverlay-class.html" class="external-link">showImage</a></span><span class="op">(</span><span class="va">chan4</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -501,7 +495,7 @@ Spatial Molecular Imager</a> outputs.</li>
 </ol>
 <p>For your reference:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># sessionInfo()</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr>
