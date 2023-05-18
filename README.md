@@ -17,11 +17,11 @@ Specifically, SpatialOmicsOverlay was developed to visualize and analyze the fre
 
 The *Introduction to SpatialOmicsOverlay* vignette demonstrates how to use OME-TIFF files, which are exported from the GeoMx platform. Participants will learn how to interact with this file type and generate informative plots over images. This vignette utilizes data from our [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/). The Spatial Organ Atlas is a freely-accesible resource of whole transcriptome spatial profiles of functional components of tissues from human and mouse generated using our [Whole Transcriptome Atlas RNA assay](https://doi.org/10.1101/2021.09.29.462442). In particular, vignette users will be analyzing data from the mouse brain. This content is similar to the vignette available with the package upon installation.
 
-Mouse brain with ROIs only - see ROIs in space:
+Mouse brain with ROIs only - see ROIs in spatial context:
 
 ![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainNoImage.png?raw=true)
 
-Mouse brain with ROIs and immunofluoresence image - see substructures samples:
+Mouse brain with ROIs and immunofluoresence image - see morphological substructures sampled:
 
 ![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImage.png?raw=true)
 
@@ -30,10 +30,10 @@ Mouse brain with Calm1 expression - see relationship between tissue structure an
 ![](https://github.com/Nanostring-Biostats/SOOBiocWorkshop/blob/devel/images/fullBrainwImageAndCalm1.png?raw=true)
 
 ## Pre-requisites
-* Basic knowledge of R programming
-* Docker installed and ready to run
+* Basic knowledge of R programming.
+* Docker installed and ready to run.
 * Space on machine hosting Docker image to download a 13 GB demo data file.
-* Optional: familiarity with NanoString's DSP platform and data type. See *Resources* section.
+* Optional: familiarity with NanoString's GeoMx DSP platform and data type. See *Resources* section.
 
 
 ## Download the Docker image
@@ -66,4 +66,4 @@ Your usename will be your GitHub username and your password should be a classic-
 * Learn more about the [GeoMx DSP platform](https://nanostring.com/products/geomx-digital-spatial-profiler/geomx-dsp-overview/).
 * Access [SpatialOmicsOverlay](https://bioconductor.org/packages/release/bioc/html/SpatialOmicsOverlay.html) on Bioconductor.
 * Explore the [Spatial Organ Atlas](https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/) data on NanoString's website.
-* View [source code](https://github.com/Nanostring-Biostats/SOOBiocWorkshop) for this workshop.
+* View the [source code](https://github.com/Nanostring-Biostats/SOOBiocWorkshop) for this workshop.
