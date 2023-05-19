@@ -151,25 +151,18 @@ to segment the neuronal nuclei and neuropil regions on this sample:</p>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="adjust-path">Adjust PATH<a class="anchor" aria-label="anchor" href="#adjust-path"></a>
-</h2>
-<p>This step is required to properly load the
-<code>SpatialOmicsOverlay</code> dependency <code>RBioFormats</code>
-inside of our Dockerized RStudio container.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">old_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span>, intern<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"RBioFormats"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">new_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">old_path</span>, <span class="st">"/usr/local/lib/R/site-library/RBioFormats/"</span>, sep <span class="op">=</span> <span class="st">":"</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>PATH <span class="op">=</span> <span class="va">new_path</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"echo $PATH"</span><span class="op">)</span></span></code></pre></div>
-<p><strong><em>Restart R after running the above
-chunk.</em></strong></p>
-</div>
-<div class="section level2">
 <h2 id="load-libraries">Load Libraries<a class="anchor" aria-label="anchor" href="#load-libraries"></a>
 </h2>
+<p><strong><em>Note: We have occasionally observed this error when
+running <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(SpatialOmicsOverlay)</a></code>:</em></strong></p>
+<pre><code>Error: package or namespace load failed for 'SpatialOmicsOverlay':
+.onLoad failed in loadNamespace() for 'RBioFormats', details</code></pre>
+<p><strong><em>We theorize this is due to the Dockerized RStudio warming
+up and downloading the cached RBioFormats jar file, launching the JVM,
+or other processes. We recommend waiting several minutes between logging
+into RStudio and running this vignette. If you encounter this error, we
+have also had success in repeatedly restarting R (not RStudio) and
+running the <code>Load Libraries</code> chunk again.</em></strong></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SpatialOmicsOverlay</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Registered S3 method overwritten by 'GGally':</span></span>
@@ -237,7 +230,7 @@ your device hosting the image.</em></strong></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tifFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">tifFile</span></span>
-<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/6c953a08074_mu_brain_004.ome.tiff"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/github/home/.cache/R/SpatialOmicsOverlay/6c820ade91_mu_brain_004.ome.tiff"</span></span></code></pre></div>
 <p><code><a href="https://rdrr.io/pkg/SpatialOmicsOverlay/man/downloadMouseBrainImage.html" class="external-link">downloadMouseBrainImage()</a></code> will download files, in this
 workshop, to the
 <code>/home/rstudio/.cache/R/SpatialOmicsOverlay/</code> folder.</p>
