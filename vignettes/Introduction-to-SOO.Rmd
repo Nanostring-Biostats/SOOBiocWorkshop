@@ -49,13 +49,28 @@ This mouse brain features both geometric and segmented ROI profiling. For the se
 
 # Load Libraries
 
-***Note: We have occasionally observed this error when running `library(SpatialOmicsOverlay)`:***
+***Note: We have occasionally observed this error when running `library(SpatialOmicsOverlay)`, which has `RBioFormats` as a dependency:***
+
 ```
 Error: package or namespace load failed for 'SpatialOmicsOverlay':
-.onLoad failed in loadNamespace() for 'RBioFormats', details
+  .onLoad failed in loadNamespace() for 'RBioFormats', details:
+  call: jclassName(class, class.loader = class.loader)
+  error: java.lang.ClassNotFoundException
 ```
 
-***We theorize this is due to the Dockerized RStudio warming up and downloading the cached RBioFormats jar file, launching the JVM, or other processes. We recommend waiting several minutes between logging into RStudio and running this vignette. If you encounter this error, we have also had success in repeatedly restarting R (not RStudio) and running the `Load Libraries` chunk again.***
+***We theorize this is due to the Dockerized RStudio warming up and downloading the cached RBioFormats jar file, launching the JVM, or other initiating processes. If you are encountering this error, we recommend waiting several minutes between logging into RStudio and running this vignette. We have also had success in repeatedly restarting R (not RStudio) and running the `Load Libraries` chunk again. If the issue persists, you may consider generating a new container from the Docker image. Finally, it may be helpful to wait until the RBioFormats cached jar file is fully in place before loading SpatialOmicsOverlay; see the following code chunk.***
+
+```{r alternative library load}
+# fn <- "~/.cache/R/RBioFormats/bioformats_package_6.12.0.jar"
+# file.exists(fn, recursive =TRUE)
+# 
+# if (file.exists(fn)) {
+#   print(file.info(fn)$size)
+#   if(file.info(fn)$size == 43081858) {
+#     library(SpatialOmicsOverlay)
+#   }
+# }
+```
 
 
 ```{r Load Libraries}
