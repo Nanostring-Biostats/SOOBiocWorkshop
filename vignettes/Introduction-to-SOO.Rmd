@@ -74,6 +74,8 @@ Error: package or namespace load failed for 'SpatialOmicsOverlay':
 
 
 ```{r Load Libraries}
+library(rJava)
+library(RBioFormats)
 library(SpatialOmicsOverlay)
 library(GeomxTools)
 ```
